@@ -48,4 +48,4 @@ display()
 
 
 
-#  we have to usse the concept of global here
+#  we have to usse the concept of global variable  here
