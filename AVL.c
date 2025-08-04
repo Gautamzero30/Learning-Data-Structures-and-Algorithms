@@ -49,7 +49,7 @@ struct Node* rightRotate(struct Node* y) {
     y->height = max(getHeight(y->left), getHeight(y->right)) + 1;
     x->height = max(getHeight(x->left), getHeight(x->right)) + 1;
 
-    return x;
+    return y;
 }
 
 struct Node* leftRotate(struct Node* x) {
@@ -62,7 +62,7 @@ struct Node* leftRotate(struct Node* x) {
     x->height = max(getHeight(x->left), getHeight(x->right)) + 1;
     y->height = max(getHeight(y->left), getHeight(y->right)) + 1;
 
-    return y;
+    return x;
 }
 
 struct Node* insert(struct Node* node, int key) {
