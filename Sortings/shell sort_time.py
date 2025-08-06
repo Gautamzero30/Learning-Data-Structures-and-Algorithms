@@ -1,35 +1,19 @@
-
 import time
 import random
 
-def radix(a):    
-    max_num = max(a)
-    val = 1
-    while max_num // val > 0:
-        radix_sort(a, val)
-        val *= 10
-
-def radix_sort(a, val):
+def shellsort(a):
     n = len(a)
-    output = [0] * n
-    count = [0] * 10
-
-    for i in range(n):
-        index = (a[i] // val) % 10
-        count[index] += 1
-
-    for i in range(1, 10):
-        count[i] += count[i - 1]
-
-    i = n - 1
-    while i >= 0:
-        index = (a[i] // val) % 10
-        output[count[index] - 1] = a[i]
-        count[index] -= 1
-        i -= 1
-
-    for i in range(n):
-        a[i] = output[i]
+    gap = n // 2
+    while gap > 0:
+        for i in range(gap, n):
+            temp = a[i]
+            j = i
+            while j >= gap and a[j - gap] > temp:
+                a[j] = a[j - gap]
+                j -= gap
+            a[j] = temp
+        gap //= 2
+    return a
 
 n = int(input("Enter the number of random elements to sort: "))
 min_val = int(input("Enter the minimum possible value: "))
@@ -42,7 +26,7 @@ print(a)
 
 start_time = time.time()
 
-radix(a)
+shellsort(a)
 
 end_time = time.time()
 

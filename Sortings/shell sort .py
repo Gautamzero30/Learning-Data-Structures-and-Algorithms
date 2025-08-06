@@ -9,14 +9,15 @@ def shellsort(a,n):
                a[j]=a[j-gap]
                j = j- gap
             a[j]=temp
-        gap //=2  
+        gap //= 2  
 
-
+    return a
 a=[]
 n = int(input("enter the numbers of elements to be sorted "))
 for i in range(n):
     p = int(input(f"enter the {i + 1} element : "))
     a.append(p)       
-shellsort(a,n) 
-print(f"the sorted list  is " ,a)   
+reasult = shellsort(a,n) 
+print(f"the sorted list  is " ,reasult)  
+
           
