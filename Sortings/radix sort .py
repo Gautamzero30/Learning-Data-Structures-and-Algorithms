@@ -16,7 +16,7 @@ def radix_sort(a,val,n):
         count[index]+=1 
 
     for i in range(1,10):
-        count[i] = count[i] - count[i-1]
+        count[i] = count[i] + count[i-1]
 
     i = n-1
     while i >=0:

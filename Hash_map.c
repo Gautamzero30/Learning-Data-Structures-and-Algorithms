@@ -101,7 +101,7 @@ int main() {
     insert("Butwal", 7);
     insert("Dharan", 8);
     insert("Hetauda", 9);
-    insert("Nepalgunj", 10); // this will force some collisions
+    insert("Nepalgunj", 10); 
 
     printf("\nHash Table:\n");
     display();

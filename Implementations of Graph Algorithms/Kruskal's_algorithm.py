@@ -20,6 +20,7 @@ def get_weight(edge):
 def minimum_spanning_tree(edges, n):
     edges.sort(key=get_weight)
     parent = [i for i in range(n)]
+    print(parent)
     rank = [0] * n
     min_weight = 0
     for edge in edges:
@@ -29,7 +30,7 @@ def minimum_spanning_tree(edges, n):
         if u != v:
             min_weight += wt
             union_set(u, v, parent, rank)
-    return min_weight
+    return min_weight,parent
 
 edges = [
     [0, 1, 10],

@@ -21,12 +21,12 @@ from queue import PriorityQueue
 
 
 G = {
-    's':{'t':10 ,'y':5},
+    'a':{'b':2 },
 
-    't':{'y': 2 ,'x' :1},
-    'x':{'z' : 4},
-    'y':{"z":2, "x":9,"t":3},
-    'z':{"x":6,"s":7}
+    'd':{'b': 11 ,'f' :9},
+    'f':{'a' : 7,'c':3,"e":1},
+    'c':{"a":6 },
+    'e':{"c":5}
 }
 def INITIALIZE_SINGLE_SOURCE(G,s):
     cost = dict()
@@ -90,7 +90,7 @@ def RECONSTRUCT_PATH(vertex, prev):
         vertex = prev[vertex]
 
     return path
-s = "t"
+s = "f"
 cost,prev = DJ(G,s)    
 for vertex in G.keys():
     print(f"shortest path from {s} to {vertex} is {RECONSTRUCT_PATH(vertex,prev)}")
