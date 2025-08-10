@@ -21,13 +21,13 @@ from queue import PriorityQueue
 
 
 G = {
-    'a':{'b':2 },
-
-    'd':{'b': 11 ,'f' :9},
-    'f':{'a' : 7,'c':3,"e":1},
-    'c':{"a":6 },
-    'e':{"c":5}
+   's':{'t': 10, 'y': 5},
+    't':{'x': 1, 'y': 2},
+    'x':{'z': 4},
+    'y':{'t': 3, 'z': 2, 'x': 9},
+    'z':{'x': 6, 's': 7}
 }
+
 def INITIALIZE_SINGLE_SOURCE(G,s):
     cost = dict()
     prev = dict()
@@ -74,14 +74,6 @@ def DJ(G,s):
                 print(cost)
     return cost, prev    
 
-# s = "s"
-# cost,prev = DJ(G,s) 
-# print(cost)
-# print(prev)
-
-
-
-    
 def RECONSTRUCT_PATH(vertex, prev):
     path = vertex
     while prev[vertex ] != " ":
@@ -90,10 +82,11 @@ def RECONSTRUCT_PATH(vertex, prev):
         vertex = prev[vertex]
 
     return path
-s = "f"
-cost,prev = DJ(G,s)    
-for vertex in G.keys():
-    print(f"shortest path from {s} to {vertex} is {RECONSTRUCT_PATH(vertex,prev)}")
-    print(f"cost is {cost[vertex]}")
+if __name__ == "__main__":
+    s = "t"
+    cost,prev = DJ(G,s)    
+    for vertex in G.keys():
+        print(f"shortest path from {s} to {vertex} is {RECONSTRUCT_PATH(vertex,prev)}")
+        print(f"cost is {cost[vertex]}")
 
 
