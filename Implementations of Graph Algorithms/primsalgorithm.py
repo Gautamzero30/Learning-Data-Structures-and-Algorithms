@@ -2,10 +2,10 @@ import heapq
 
 def prim_mst(graph, start_node):
     visited = []
-    min_heap = [(0, start_node, None)]  # (weight, current_node, parent)
+    min_heap = [(0, start_node, None)] # to store the datas in the min heap (weight, current_node, parent)
     total_weight = 0
-    mst_edges = []      # stores (parent, node, weight)
-    mst_pairs = []      # stores just (parent, node)
+    mst_edges = []      # to  stores the (parent, node, weight)
+    mst_pairs = []      #  to stores just the(parent, node)
     print(f"Initial min_heap: {min_heap}")
     while min_heap:
         weight, node, parent = heapq.heappop(min_heap)
@@ -19,9 +19,10 @@ def prim_mst(graph, start_node):
         print( f"the mst pairs is {mst_pairs}") 
         if parent is not None:
             mst_edges.append((parent, node, weight))
-            mst_pairs.append((parent, node))  #  add the pair here
+            mst_pairs.append((parent, node))  # to add the pair here
         print(f"min_heap before adding neighbors: {min_heap}")
-      
+    #   adding the neighbours to the min_heap
+
         for neighbor, edge_weight in graph[node]:
             if neighbor not in visited:
                 heapq.heappush(min_heap, (edge_weight, neighbor, node))
